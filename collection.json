@@ -1,0 +1,142 @@
+{
+  "info": {
+    "name": "TeachFlow API",
+    "_postman_id": "b15e8b9f-28a1-4a4b-a62d-32fb1e54b291",
+    "description": "API collection for Announcements and Quizzes",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Announcements",
+      "item": [
+        {
+          "name": "Get All Announcements",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/announcements"
+          }
+        },
+        {
+          "name": "Get Announcement by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/announcements/:id"
+          }
+        },
+        {
+          "name": "Create Announcement",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"announcer\": \"Dr. Ahmed\",\n  \"announcerImgUrl\": \"https://example.com/image.jpg\",\n  \"course\": \"CS101\",\n  \"content\": \"Midterm exam will be next Monday\"\n}"
+            },
+            "url": "{{base_url}}/announcements"
+          }
+        },
+        {
+          "name": "Update Announcement",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"content\": \"Exam postponed to Tuesday\"\n}"
+            },
+            "url": "{{base_url}}/announcements/:id"
+          }
+        },
+        {
+          "name": "Delete Announcement",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{base_url}}/announcements/:id"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Quizzes",
+      "item": [
+        {
+          "name": "Get All Quizzes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/quizzes"
+          }
+        },
+        {
+          "name": "Get Quiz by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/quizzes/:id"
+          }
+        },
+        {
+          "name": "Create Quiz",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"instructor\": \"Dr. Mohamed\",\n  \"course\": \"AI102\",\n  \"questions\": [\n    {\n      \"question\": \"What is machine learning?\",\n      \"options\": [\"A programming language\", \"A subset of AI\", \"A math formula\", \"A web framework\"],\n      \"answer\": \"A subset of AI\",\n      \"weight\": 5\n    },\n    {\n      \"question\": \"Which algorithm is used for classification?\",\n      \"options\": [\"K-Means\", \"Decision Tree\", \"PCA\", \"KNN\"],\n      \"answer\": \"Decision Tree\",\n      \"weight\": 3\n    }\n  ]\n}"
+            },
+            "url": "{{base_url}}/quizzes"
+          }
+        },
+        {
+          "name": "Update Quiz",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"course\": \"AI103\"\n}"
+            },
+            "url": "{{base_url}}/quizzes/:id"
+          }
+        },
+        {
+          "name": "Delete Quiz",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{base_url}}/quizzes/:id"
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000/api"
+    }
+  ]
+}
